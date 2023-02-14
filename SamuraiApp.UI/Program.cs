@@ -11,8 +11,9 @@ namespace SamuraiApp.UI
 		private static void Main(string[] args)
 		{
 			//_context.Database.EnsureCreated();
-
-			//AddSamurai("Kin'emon","raizo","kawamatsu");
+			
+			AddSamurai("Kiku","Konshiro","momonuske");
+			//AddSamurai("oden");
 			GetSamurais();
 			Console.WriteLine("Press any key...");
 			Console.ReadKey();

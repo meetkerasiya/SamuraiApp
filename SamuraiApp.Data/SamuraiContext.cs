@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using SamuraiApp.Domain;
 
 namespace SamuraiApp.Data
@@ -15,7 +16,9 @@ namespace SamuraiApp.Data
 
 
             optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=SamuraiAppData")
-                    .LogTo(Console.WriteLine);
+                    .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name },
+                                    LogLevel.Information)
+                    .EnableSensitiveDataLogging();
                     //.LogTo(_writer.WriteLine);
             
         }
