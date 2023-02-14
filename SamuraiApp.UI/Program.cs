@@ -17,11 +17,33 @@ namespace SamuraiApp.UI
 			//AddQuoteToExistingSamuraiWhileTracked();
 			//AddQuoteToExistingSamuraiNotTracked(33);
 
-			EagerLoadSamuraiWithQuotes();
+			//EagerLoadSamuraiWithQuotes();
+			//FilteringWithRelatedData();
+
+			ModifyingRelatedDataWhenNotTracked();
             Console.WriteLine("Press any key...");
 			Console.ReadKey();
 		}
 
+        private static void ModifyingRelatedDataWhenNotTracked()
+        {
+			var samurai = _context.Samurais.Include(s => s.Quotes)
+				.FirstOrDefault(s => s.Id == 33);
+			var quote = samurai.Quotes[0];
+			quote.Text += " ,Luffy said that to vivi";
+
+			using var newContext = new SamuraiContext();
+			//newContext.Quotes.Update(quote);
+			newContext.Entry(quote).State = EntityState.Modified;
+			newContext.SaveChanges();
+        }
+
+        private static void FilteringWithRelatedData()
+		{
+			var samurais=_context.Samurais
+				.Where(s=>s.Quotes.Any(q=>q.Text.Contains("stupid")))
+				.ToList();
+		}
         private static void EagerLoadSamuraiWithQuotes()
         {
 			var samuraiWithQuotes = _context.Samurais
