@@ -12,7 +12,7 @@ namespace SamuraiApp.UI
 		{
 			//_context.Database.EnsureCreated();
 
-			AddSamurai("Kin'emon","raizo","kawamatsu");
+			//AddSamurai("Kin'emon","raizo","kawamatsu");
 			GetSamurais();
 			Console.WriteLine("Press any key...");
 			Console.ReadKey();

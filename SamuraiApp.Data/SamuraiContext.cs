@@ -9,9 +9,14 @@ namespace SamuraiApp.Data
 
         public DbSet<Quote> Quotes { get; set; }
 
+        private StreamWriter _writer=new StreamWriter("EFCoreLog.txt",append:true);
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=SamuraiAppData");
+
+
+            optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=SamuraiAppData")
+                    .LogTo(Console.WriteLine);
+                    //.LogTo(_writer.WriteLine);
             
         }
 

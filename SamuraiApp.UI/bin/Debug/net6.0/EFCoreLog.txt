@@ -1,0 +1,243 @@
+dbug: 14-02-2023 11:17:06.905 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 7.0.2 initialized 'SamuraiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.2' with options: None
+dbug: 14-02-2023 11:17:06.921 CoreEventId.ValueGenerated[10808] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      'SamuraiContext' generated a temporary value for the property 'Id.Samurai'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:06.950 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:06.951 CoreEventId.ValueGenerated[10808] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      'SamuraiContext' generated a temporary value for the property 'Id.Samurai'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:06.951 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:06.951 CoreEventId.ValueGenerated[10808] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      'SamuraiContext' generated a temporary value for the property 'Id.Samurai'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:06.951 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:06.952 CoreEventId.SaveChangesStarting[10004] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges starting for 'SamuraiContext'.
+dbug: 14-02-2023 11:17:06.953 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'SamuraiContext'.
+dbug: 14-02-2023 11:17:06.957 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'SamuraiContext'.
+dbug: 14-02-2023 11:17:06.992 RelationalEventId.BatchReadyForExecution[20700] (Microsoft.EntityFrameworkCore.Update) 
+      Executing 3 update commands as a batch.
+dbug: 14-02-2023 11:17:06.999 RelationalEventId.ConnectionCreating[20005] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Creating DbConnection.
+dbug: 14-02-2023 11:17:07.017 RelationalEventId.ConnectionCreated[20006] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Created DbConnection. (19ms).
+dbug: 14-02-2023 11:17:07.019 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:17:07.610 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:17:07.612 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 14-02-2023 11:17:07.614 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: 14-02-2023 11:17:07.618 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (6ms).
+dbug: 14-02-2023 11:17:07.622 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      MERGE [Samurais] USING (
+      VALUES (@p0, 0),
+      (@p1, 1),
+      (@p2, 2)) AS i ([Name], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([Name])
+      VALUES (i.[Name])
+      OUTPUT INSERTED.[Id], i._Position;
+info: 14-02-2023 11:17:07.646 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (26ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      MERGE [Samurais] USING (
+      VALUES (@p0, 0),
+      (@p1, 1),
+      (@p2, 2)) AS i ([Name], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([Name])
+      VALUES (i.[Name])
+      OUTPUT INSERTED.[Id], i._Position;
+dbug: 14-02-2023 11:17:07.658 CoreEventId.ForeignKeyChangeDetected[10803] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The foreign key property 'Samurai.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+dbug: 14-02-2023 11:17:07.663 CoreEventId.ForeignKeyChangeDetected[10803] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The foreign key property 'Samurai.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+dbug: 14-02-2023 11:17:07.663 CoreEventId.ForeignKeyChangeDetected[10803] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The foreign key property 'Samurai.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+dbug: 14-02-2023 11:17:07.667 RelationalEventId.DataReaderClosing[20301] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Closing data reader to 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:17:07.670 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader for 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB' is being disposed after spending 22ms reading results.
+dbug: 14-02-2023 11:17:07.672 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:17:07.675 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB' (3ms).
+dbug: 14-02-2023 11:17:07.680 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'Samurai' tracked by 'SamuraiContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.680 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'Samurai' tracked by 'SamuraiContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.680 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'Samurai' tracked by 'SamuraiContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.681 CoreEventId.SaveChangesCompleted[10005] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges completed for 'SamuraiContext' with 3 entities written to the database.
+dbug: 14-02-2023 11:17:07.714 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Samurai>()
+          .TagWith("ConsoleApp.Program.GetSamurais method")'
+dbug: 14-02-2023 11:17:07.804 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Samurai>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.QueryExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Samurai.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Samurai.Name (string) Required, 1] }
+              -- ConsoleApp.Program.GetSamurais methodSELECT s.Id, s.Name
+              FROM Samurais AS s), 
+          null, 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Samurai>, 
+          SamuraiApp.Data.SamuraiContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: 14-02-2023 11:17:07.816 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 14-02-2023 11:17:07.816 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 14-02-2023 11:17:07.816 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (0ms).
+dbug: 14-02-2023 11:17:07.816 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:17:07.817 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:17:07.817 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      -- ConsoleApp.Program.GetSamurais method
+      
+      SELECT [s].[Id], [s].[Name]
+      FROM [Samurais] AS [s]
+info: 14-02-2023 11:17:07.818 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      -- ConsoleApp.Program.GetSamurais method
+      
+      SELECT [s].[Id], [s].[Name]
+      FROM [Samurais] AS [s]
+dbug: 14-02-2023 11:17:07.820 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.820 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.820 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.820 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.821 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.821 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:17:07.821 Cdbug: 14-02-2023 11:18:06.402 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 7.0.2 initialized 'SamuraiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.2' with options: None
+dbug: 14-02-2023 11:18:06.487 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Samurai>()
+          .TagWith("ConsoleApp.Program.GetSamurais method")'
+dbug: 14-02-2023 11:18:06.642 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Samurai>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.QueryExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Samurai.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Samurai.Name (string) Required, 1] }
+              -- ConsoleApp.Program.GetSamurais methodSELECT s.Id, s.Name
+              FROM Samurais AS s), 
+          null, 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Samurai>, 
+          SamuraiApp.Data.SamuraiContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: 14-02-2023 11:18:06.673 RelationalEventId.ConnectionCreating[20005] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Creating DbConnection.
+dbug: 14-02-2023 11:18:06.742 RelationalEventId.ConnectionCreated[20006] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Created DbConnection. (68ms).
+dbug: 14-02-2023 11:18:06.744 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 14-02-2023 11:18:06.749 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (78ms).
+dbug: 14-02-2023 11:18:06.752 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (81ms).
+dbug: 14-02-2023 11:18:06.755 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:18:07.101 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:18:07.107 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      -- ConsoleApp.Program.GetSamurais method
+      
+      SELECT [s].[Id], [s].[Name]
+      FROM [Samurais] AS [s]
+info: 14-02-2023 11:18:07.144 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      -- ConsoleApp.Program.GetSamurais method
+      
+      SELECT [s].[Id], [s].[Name]
+      FROM [Samurais] AS [s]
+dbug: 14-02-2023 11:18:07.191 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:18:07.203 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:18:07.203 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.Edbug: 14-02-2023 11:19:27.593 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 7.0.2 initialized 'SamuraiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.2' with options: None
+dbug: 14-02-2023 11:19:27.635 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Samurai>()
+          .TagWith("ConsoleApp.Program.GetSamurais method")'
+dbug: 14-02-2023 11:19:27.726 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Samurai>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.QueryExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Samurai.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Samurai.Name (string) Required, 1] }
+              -- ConsoleApp.Program.GetSamurais methodSELECT s.Id, s.Name
+              FROM Samurais AS s), 
+          null, 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Samurai>, 
+          SamuraiApp.Data.SamuraiContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: 14-02-2023 11:19:27.744 RelationalEventId.ConnectionCreating[20005] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Creating DbConnection.
+dbug: 14-02-2023 11:19:27.760 RelationalEventId.ConnectionCreated[20006] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Created DbConnection. (15ms).
+dbug: 14-02-2023 11:19:27.761 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 14-02-2023 11:19:27.765 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (21ms).
+dbug: 14-02-2023 11:19:27.766 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (23ms).
+dbug: 14-02-2023 11:19:27.768 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:19:27.915 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'SamuraiAppData' on server '(LocalDB)\MSSQLLocalDB'.
+dbug: 14-02-2023 11:19:27.917 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      -- ConsoleApp.Program.GetSamurais method
+      
+      SELECT [s].[Id], [s].[Name]
+      FROM [Samurais] AS [s]
+info: 14-02-2023 11:19:27.930 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      -- ConsoleApp.Program.GetSamurais method
+      
+      SELECT [s].[Id], [s].[Name]
+      FROM [Samurais] AS [s]
+dbug: 14-02-2023 11:19:27.954 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:19:27.961 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 14-02-2023 11:19:27.961 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'SamuraiContext' started tracking 'Samurai' entity. Consider using 'DbContextOptionsBuilder.E
