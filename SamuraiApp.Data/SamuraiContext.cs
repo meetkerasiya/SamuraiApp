@@ -8,6 +8,7 @@ namespace SamuraiApp.Data
     {
         public DbSet<Samurai> Samurais { get; set; }
 
+        public DbSet<Battle> Battles { get; set; }
         public DbSet<Quote> Quotes { get; set; }
 
         private StreamWriter _writer=new StreamWriter("EFCoreLog.txt",append:true);
