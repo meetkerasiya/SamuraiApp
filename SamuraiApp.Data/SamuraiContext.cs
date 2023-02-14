@@ -20,7 +20,7 @@ namespace SamuraiApp.Data
                                     LogLevel.Information)
                     .EnableSensitiveDataLogging();
                     //.LogTo(_writer.WriteLine);
-            
+                    //if i remove this above comment it'll override previous call to LogTo for console
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
