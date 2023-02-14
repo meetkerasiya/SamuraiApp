@@ -16,7 +16,8 @@ namespace SamuraiApp.Data
         {
 
 
-            optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=SamuraiAppData")
+            optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=SamuraiAppData",
+                        options => options.MaxBatchSize(100))
                     .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name },
                                     LogLevel.Information)
                     .EnableSensitiveDataLogging();

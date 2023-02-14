@@ -11,15 +11,22 @@ namespace SamuraiApp.UI
 		private static void Main(string[] args)
 		{
 			//_context.Database.EnsureCreated();
-			AddVariousTypes();
+			//AddVariousTypes();
 			//AddSamuraisByName("shimada","okamoto","kikuchio","wataru");
 			//AddSamuraisByName("oden");
-			GetSamurais();
+			//GetSamurais();
+			QueryFilters();
 			Console.WriteLine("Press any key...");
 			Console.ReadKey();
 		}
 
-		private static void AddVariousTypes()
+        private static void QueryFilters()
+        {
+           var samurais=_context.Samurais.Where(s=>s.Name=="raizo").ToList();
+			
+        }
+
+        private static void AddVariousTypes()
 		{
 			_context.AddRange(
 			
