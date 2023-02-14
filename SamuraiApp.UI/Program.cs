@@ -8,19 +8,28 @@ namespace SamuraiApp.UI
 	{
 		private static SamuraiContext _context=new SamuraiContext();
 
-		private static void Main(string[] args)
+        private static void Main(string[] args)
 		{
 			//_context.Database.EnsureCreated();
 			//AddVariousTypes();
 			//AddSamuraisByName("shimada","okamoto","kikuchio","wataru");
-			//AddSamuraisByName("oden");
+			AddSamuraisByName("kin'emon");
 			//GetSamurais();
 			//QueryFilters();
 			//QueryAggregates();
-			RetrieveAndUpdateSamurai();
+			//RetrieveAndUpdateSamurai();
+			RetrieveAndDeleteSamurai();
             Console.WriteLine("Press any key...");
 			Console.ReadKey();
 		}
+
+        private static void RetrieveAndDeleteSamurai()
+        {
+			var name = "kin'emon";
+            var samurai=_context.Samurais.Where(s=>s.Name==name).FirstOrDefault();
+			_context.Samurais.Remove(samurai);
+			_context.SaveChanges();
+        }
 
         private static void QueryFilters()
 		{
