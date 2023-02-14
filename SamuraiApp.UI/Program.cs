@@ -15,15 +15,40 @@ namespace SamuraiApp.UI
 			//AddSamuraisByName("shimada","okamoto","kikuchio","wataru");
 			//AddSamuraisByName("oden");
 			//GetSamurais();
-			QueryFilters();
-			Console.WriteLine("Press any key...");
+			//QueryFilters();
+			//QueryAggregates();
+			RetrieveAndUpdateSamurai();
+            Console.WriteLine("Press any key...");
 			Console.ReadKey();
 		}
 
         private static void QueryFilters()
+		{
+			var name = "raizo";
+			var samurais=_context.Samurais.Where(s=>s.Name==name).ToList();
+			//var samurais=_context.Samurais.Where(s=>s.Name=="raizo").ToList();
+			//cause above commented way will convert query with hard code insted we use 
+			//uncommented as it creates parameterized query
+
+			samurais = _context.Samurais.Where(s => EF.Functions.Like(s.Name, "%e%")).ToList();
+
+		}
+        private static void QueryAggregates()
         {
-           var samurais=_context.Samurais.Where(s=>s.Name=="raizo").ToList();
-			
+			var name = "raizo";
+			var samurai=_context.Samurais.FirstOrDefault(s=>s.Name==name);
+			//we cannot use ToList in ubove way.
+			//var samurais=_context.Samurais.Where(s=>s.Name==name).FirstOrDefault().ToList();
+        }
+
+        private static void RetrieveAndUpdateSamurai()
+		{
+			//var samurai = _context.Samurais.FirstOrDefault();
+			//samurai.Name+="San";
+			var samurais = _context.Samurais.Skip(1).Take(5).ToList();
+			samurais.ForEach(s => s.Name += "San");
+			_context.SaveChanges();
+            
         }
 
         private static void AddVariousTypes()
