@@ -11,7 +11,7 @@ namespace SamuraiApp.Data
         public DbSet<Battle> Battles { get; set; }
         public DbSet<Quote> Quotes { get; set; }
 
-        private StreamWriter _writer=new StreamWriter("EFCoreLog.txt",append:true);
+        //private StreamWriter _writer=new StreamWriter("EFCoreLog.txt",append:true);
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 

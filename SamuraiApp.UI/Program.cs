@@ -11,17 +11,89 @@ namespace SamuraiApp.UI
         private static void Main(string[] args)
 		{
 			//_context.Database.EnsureCreated();
-			//AddVariousTypes();
-			//AddSamuraisByName("shimada","okamoto","kikuchio","wataru");
-			AddSamuraisByName("kin'emon");
-			//GetSamurais();
-			//QueryFilters();
-			//QueryAggregates();
-			//RetrieveAndUpdateSamurai();
-			RetrieveAndDeleteSamurai();
+
+			//InsertNewSamuraiWithAQuote();
+
+			//AddQuoteToExistingSamuraiWhileTracked();
+			//AddQuoteToExistingSamuraiNotTracked(33);
+
+			EagerLoadSamuraiWithQuotes();
             Console.WriteLine("Press any key...");
 			Console.ReadKey();
 		}
+
+        private static void EagerLoadSamuraiWithQuotes()
+        {
+			var samuraiWithQuotes = _context.Samurais
+				.Include(s => s.Quotes.Where(
+				q=>q.Text.Contains("naïve. "))).ToList();
+        }
+
+        private static void AddQuoteToExistingSamuraiNotTracked(int samuraiId)
+        {
+            var samurai = _context.Samurais.Find(samuraiId);
+			samurai.Quotes.Add(new Quote
+			{
+				Text = "When I leave this country you will always have fodd to eat."
+			});
+			using(var newContext=new SamuraiContext())
+			{
+				newContext.Samurais.Attach(samurai);
+				//newContext.Samurais.Update(samurai);
+				newContext.SaveChanges();
+			}
+			
+        }
+		 private static void AddQuoteToExistingSamuraiWhileTracked()
+        {
+            var samurai = _context.Samurais.FirstOrDefault();
+			samurai.Quotes.Add(new Quote
+			{
+				Text = "Worry not! I am here."
+			});
+			_context.SaveChanges();
+        }
+
+        private static void InsertNewSamuraiWithAQuote()
+		{
+			var samurai = new Samurai
+			{
+				Name = "Roronoa Zoro",
+				Quotes = new List<Quote>
+				{
+					new Quote {Text = "Scars on the back are a swordsman's shame."},
+					new Quote {Text = "Only I can call my dream stupid!"}
+				}
+				//Name = "Monkey D. Luffy",
+				//Quotes = new List<Quote>
+				//{
+				//	new Quote {Text = "You want to keep everyone from dying? That’s naïve. Its war. People die."}
+				//}
+
+			};
+			_context.Samurais.Add(samurai);
+			_context.SaveChanges();
+		}
+        private static void QueryAndUpdateBattles_Disconnected()
+        {
+			List<Battle> disconnectedBattles;
+			using(var context1=new SamuraiContext())
+			{
+				disconnectedBattles = _context.Battles.ToList();
+			}
+			disconnectedBattles.ForEach(b =>
+			{
+				b.StartDate = new DateTime(2022, 04, 18);
+				b.EndDate = new DateTime(2022, 04, 25);
+
+			});
+
+			using(var context2=new SamuraiContext())
+			{
+				context2.UpdateRange(disconnectedBattles);
+				context2.SaveChanges();
+			}
+        }
 
         private static void RetrieveAndDeleteSamurai()
         {
