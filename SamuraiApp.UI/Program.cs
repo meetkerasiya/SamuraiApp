@@ -20,10 +20,19 @@ namespace SamuraiApp.UI
 			//EagerLoadSamuraiWithQuotes();
 			//FilteringWithRelatedData();
 
-			ModifyingRelatedDataWhenNotTracked();
+			//ModifyingRelatedDataWhenNotTracked();
+
+			QueryUsingRawSql();
             Console.WriteLine("Press any key...");
 			Console.ReadKey();
 		}
+
+        private static void QueryUsingRawSql()
+        {
+			var samurais = _context.Samurais.FromSqlRaw("Select Id, Name from samurais")
+				.Include(s=>s.Quotes).ToList();
+			//var samurais = _context.Samurais.FromSqlRaw("Select * from samurais").ToList();
+        }
 
         private static void ModifyingRelatedDataWhenNotTracked()
         {
